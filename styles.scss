@@ -1,0 +1,14 @@
+.gridDiv {
+  background: black;
+  display: flex;
+  flex-direction: row;
+
+  .gridRow {
+    .gridIcon {
+      height: 90px;
+      width: 90px;
+      background: white;
+      margin: 10px;
+    }
+  }
+}

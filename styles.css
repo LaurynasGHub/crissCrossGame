@@ -1,0 +1,11 @@
+.gridDiv {
+  background: black;
+  display: flex;
+  flex-direction: row;
+}
+.gridDiv .gridRow .gridIcon {
+  height: 90px;
+  width: 90px;
+  background: white;
+  margin: 10px;
+}/*# sourceMappingURL=styles.css.map */
