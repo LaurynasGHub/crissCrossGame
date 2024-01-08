@@ -1,14 +1,40 @@
-.gridDiv {
-  background: black;
+.mainDiv {
+  padding-top: 50px;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  .gameGrid {
+    .gridDiv {
+      display: flex;
+      flex-direction: column;
 
-  .gridRow {
-    .gridIcon {
-      height: 90px;
-      width: 90px;
-      background: white;
-      margin: 10px;
+      .gridRow {
+        display: flex;
+        flex-direction: row;
+        .gridIcon {
+          height: 90px;
+          width: 90px;
+          background: white;
+          //   margin: 10px;
+        }
+      }
+      .gridBar {
+        background: black;
+        height: 90px;
+        width: 20px;
+      }
+      .gridHorBar {
+        height: 20px;
+        width: 310px;
+        background: black;
+      }
+    }
+  }
+  .gameRules {
+    display: flex;
+    justify-content: center;
+    .desc {
+      font-family: 'Courier New', Courier, monospace;
     }
   }
 }
