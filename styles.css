@@ -4,6 +4,13 @@
   flex-direction: row;
   justify-content: space-around;
 }
+.mainDiv button {
+  width: 70px;
+  height: 70px;
+  margin: 10px;
+  background: none;
+  border: none;
+}
 .mainDiv .gameGrid .gridDiv {
   display: flex;
   flex-direction: column;

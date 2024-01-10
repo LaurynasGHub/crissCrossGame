@@ -3,6 +3,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  button {
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+    background: none;
+    // border-radius: 20%;
+    border: none;
+  }
   .gameGrid {
     .gridDiv {
       display: flex;
@@ -11,6 +19,14 @@
       .gridRow {
         display: flex;
         flex-direction: row;
+        // .mygtukas {
+        //   width: 70px;
+        //   height: 70px;
+        //   margin: 10px;
+        //   background: none;
+        //   // border-radius: 20%;
+        //   border: none;
+        // }
         .gridIcon {
           height: 90px;
           width: 90px;
