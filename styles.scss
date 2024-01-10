@@ -11,6 +11,13 @@
       .gridRow {
         display: flex;
         flex-direction: row;
+        .mygtukas {
+          width: 90px;
+          height: 90px;
+          background: none;
+          border-radius: 20%;
+          // border: none;
+        }
         .gridIcon {
           height: 90px;
           width: 90px;

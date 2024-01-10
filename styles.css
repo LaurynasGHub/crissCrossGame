@@ -12,6 +12,12 @@
   display: flex;
   flex-direction: row;
 }
+.mainDiv .gameGrid .gridDiv .gridRow .mygtukas {
+  width: 90px;
+  height: 90px;
+  background: none;
+  border-radius: 20%;
+}
 .mainDiv .gameGrid .gridDiv .gridRow .gridIcon {
   height: 90px;
   width: 90px;

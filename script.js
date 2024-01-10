@@ -10,3 +10,14 @@
 //sudedam paspaustas value i array kur bus visi X
 //tada parenkam random skaiciu is array? isbrauksim ten pvz 1, 3,5 ir tada is 2,4,6,7,8,9 rinks kur det O
 //ten ideda O ir ideda i array ta reiksme?
+
+let mygtukas = document.getElementById('mygtukas');
+
+function sendMsg() {
+  alert('veikia');
+  mygtukas.style.border = '1px solid blue';
+  document.getElementById("mygtukas").style.border = '1px solid blue';
+  //   mygtukas.style.border.radius = '100 px';
+  //   mygtukas.style.border.width = '10 px';
+  //   mygtukas.border.color = 'black';
+}
