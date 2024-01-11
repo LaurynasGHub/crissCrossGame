@@ -48,8 +48,16 @@ function getUnselectedBtn() {
     }
   }
 
+  // for (i = 0; i < selArr.length; i++) {
+  //   console.log('arrray');
+  // }
+
   //subtract selArr from possible arr- find values which
   //are not in an default array, add them to a new array
+  //nors siaip gal tiesiog imt random skaicius? butu mygtukas+rnd
+  //get by id jei tas button kuri gavom turi class selected tada ok
+  //jei nera tos selected class tada ok, jei yra tada ieskom kito
+  //tiesiog for loop ir kai randam ko reikia darom continue
 
   //get random value that is left and add X in that spot
 }
