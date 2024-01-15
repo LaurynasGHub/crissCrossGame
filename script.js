@@ -1,63 +1,85 @@
-//sudedam paspaustas value i array kur bus visi X
-//tada parenkam random skaiciu is array? isbrauksim ten pvz 1, 3,5 ir tada is 2,4,6,7,8,9 rinks kur det O
-//ten ideda O ir ideda i array ta reiksme?
-
 function addCriss(btnId) {
   let mygtukas = document.getElementById(btnId);
   mygtukas.style.border = '10px solid black';
   mygtukas.style.borderRadius = '100%';
   console.log('btnId= ' + btnId);
-  mygtukas.classList.add('selectedO'); //add class to selected btn
+  mygtukas.classList.add('selected0'); //add class to selected btn
+  //need to add class selected0 to xSvg that has the same id
+  //so it would fall out of selection list
+  let idNr = btnId.charAt(btnId.length - 1);
+  console.log('idNr-', idNr);
+
+  let svgMygtukas = document.getElementById('xSvg' + idNr);
+  svgMygtukas.classList.add('selected0');
+
   getUnselectedBtn();
 }
 
 //find if selected fuction
 function getUnselectedBtn() {
   console.log('===getUnselectedBtn===');
-  let arraySize = 0;
-  const selArr = []; //add elements with class selectedO to an array
-  //array with all posible values
-  const posValArr = [
-    'mygtukas1',
-    'mygtukas2',
-    'mygtukas3',
-    'mygtukas4',
-    'mygtukas5',
-    'mygtukas6',
-    'mygtukas7',
-    'mygtukas8',
-    'mygtukas9',
-  ];
 
-  //loop trough all buttons
-  var buttons = document.getElementsByTagName('button');
+  //make random number for button id
+  let rndNumber = getRandomInt(1, 10);
 
-  for (i = 0; i < buttons.length; i++) {
-    let button = buttons[i];
-    console.log('button id= ' + button.id);
-    console.log('class list- ' + button.classList);
+  let rndBtnId;
+  rndBtnId = 'mygtukas' + rndNumber;
+  console.log('randomBtn-', rndBtnId);
 
-    let stringToCheck = String(button.classList);
-    // let stringPos = stringToCheck.indexOf('selectedO');
-    // console.log('stringPos' + stringPos);
+  let mygtukasRastas = false;
+  let gaunamasMygtukas;
+  let stringToCheck;
+  let itirNr = 0;
 
-    if (stringToCheck.indexOf('selectedO') > -1) {
-      console.log('turi selected0');
-      selArr[arraySize] = button.id; //add button id to an array
-      arraySize = arraySize + 1;
+  while (mygtukasRastas == false) {
+    itirNr = itirNr + 1;
+
+    if (itirNr < 20) {
+      gaunamasMygtukas = document.getElementById(rndBtnId);
+      stringToCheck = String(gaunamasMygtukas.classList);
+
+      if (stringToCheck.indexOf('selected0') > -1) {
+        console.log('turi selected0', rndBtnId);
+        console.log(
+          'indexOf class selected0',
+          stringToCheck.indexOf('selected0') > -1
+        );
+        rndNumber = getRandomInt(1, 10);
+        rndBtnId = 'mygtukas' + rndNumber;
+      } else {
+        console.log('neturi selected0', rndBtnId); //if element has style then this returns false even though the element has the class
+        console.log(
+          'indexOf class selected0',
+          stringToCheck.indexOf('selected0') > -1
+        );
+        mygtukasRastas = true;
+        addX(rndNumber);
+      }
+    }
+    if (itirNr >= 20) {
+      console.log('itirNr more than 20');
     }
   }
+}
 
-  // for (i = 0; i < selArr.length; i++) {
-  //   console.log('arrray');
-  // }
+function addX(btndID) {
+  setTimeout(() => {
+    console.log('xSvg' + btndID);
+    let selBtn = document.getElementById('xSvg' + btndID);
+    selBtn.classList.add('selected0'); //add class to selected btn
+    selBtn.style.display = 'block';
+  }, 1000);
+}
 
-  //subtract selArr from possible arr- find values which
-  //are not in an default array, add them to a new array
-  //nors siaip gal tiesiog imt random skaicius? butu mygtukas+rnd
-  //get by id jei tas button kuri gavom turi class selected tada ok
-  //jei nera tos selected class tada ok, jei yra tada ieskom kito
-  //tiesiog for loop ir kai randam ko reikia darom continue
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+}
 
-  //get random value that is left and add X in that spot
+//function for winning conditions
+function winningTheGame() {
+  //maybe insert arrays with winning conditions?
+  //make array with selected0 class as a picture
+  //compare that array
 }
