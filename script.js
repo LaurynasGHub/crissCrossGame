@@ -1,5 +1,6 @@
 function addCriss(btnId) {
   let mygtukas = document.getElementById(btnId);
+
   mygtukas.style.border = '10px solid black';
   mygtukas.style.borderRadius = '100%';
   console.log('btnId= ' + btnId);
@@ -37,8 +38,6 @@ function getUnselectedBtn() {
       gaunamasMygtukas = document.getElementById(rndBtnId);
       stringToCheck = String(gaunamasMygtukas.classList);
 
-      console.log('stringToCheck-', stringToCheck);
-
       if (stringToCheck.indexOf('selected') > -1) {
         console.log('turi selected', rndBtnId);
         rndNumber = getRandomInt(1, 10);
@@ -54,6 +53,43 @@ function getUnselectedBtn() {
       console.log('itirNr more than 20');
       mygtukasRastas = true;
     }
+  }
+
+  let mygtukai = document.getElementsByClassName('mygtukas');
+  let tikrinamasMygtukas;
+  let winningArray = [];
+
+  for (let i = 0; i < mygtukai.length; i++) {
+    tikrinamasMygtukas = mygtukai[i];
+
+    //need to add different classes to O and X so we can make an
+    //array of game grid and check if the condition is winning
+
+    getIfSelected(tikrinamasMygtukas.id) == true
+      ? console.log('getifslctd = True')
+      : console.log('getifslctd = false');
+
+    if (getIfSelected(tikrinamasMygtukas.id == true)) {
+      winningArray.push('X');
+    }
+  }
+}
+
+function getIfSelected(idNr) {
+  // console.log('===GetSelected===');
+
+  let getSlctdFunBtn = document.getElementById(idNr);
+
+  // console.log('element to check-', idNr);
+
+  stringToCheck = String(getSlctdFunBtn.classList);
+
+  if (stringToCheck.indexOf('selected') > -1) {
+    // console.log('turi selected', idNr);
+    return (getSelected = true);
+  } else {
+    // console.log('neturi selected', idNr);
+    return (getSelected = false);
   }
 }
 
@@ -75,27 +111,6 @@ function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-}
-
-//function to check if selected item has selected class
-function checkSelected(elementId, elementType) {
-  elementToCheck = elementType + elementId;
-  console.log('===checkSelected===');
-  console.log('elementToCheck-', elementToCheck);
-
-  let checkingElement = document.getElementById(elementToCheck);
-
-  let stringToCheck = String(checkingElement.classList);
-
-  console.log('stringToCheck-', stringToCheck);
-
-  if (stringToCheck.indexOf('selected') > -1) {
-    console.log(elementToCheck, 'has a selected class');
-    return (checkSelected = true);
-  } else {
-    console.log(elementToCheck, 'doesnt have a selected class');
-    return (checkSelected = false);
-  }
 }
 
 //function for winning conditions
