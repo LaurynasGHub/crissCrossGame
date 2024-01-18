@@ -4,13 +4,13 @@ function addCriss(btnId) {
   mygtukas.style.border = '10px solid black';
   mygtukas.style.borderRadius = '100%';
   console.log('btnId= ' + btnId);
-  mygtukas.classList.add('selected'); //add class to selected btn
+  mygtukas.classList.add('selected0'); //add class to selected btn
 
   let idNr = btnId.charAt(btnId.length - 1);
   console.log('idNr-', idNr);
 
   let svgMygtukas = document.getElementById('xSvg' + idNr);
-  svgMygtukas.classList.add('selected');
+  svgMygtukas.classList.add('selected0');
 
   getUnselectedBtn();
 }
@@ -38,7 +38,11 @@ function getUnselectedBtn() {
       gaunamasMygtukas = document.getElementById(rndBtnId);
       stringToCheck = String(gaunamasMygtukas.classList);
 
-      if (stringToCheck.indexOf('selected') > -1) {
+      console.log('stringToCheck', stringToCheck);
+      if (
+        stringToCheck.indexOf('selectedX') > -1 ||
+        stringToCheck.indexOf('selected0') > -1
+      ) {
         console.log('turi selected', rndBtnId);
         rndNumber = getRandomInt(1, 10);
         rndBtnId = 'mygtukas' + rndNumber;
@@ -69,9 +73,9 @@ function getUnselectedBtn() {
       ? console.log('getifslctd = True')
       : console.log('getifslctd = false');
 
-    if (getIfSelected(tikrinamasMygtukas.id == true)) {
-      winningArray.push('X');
-    }
+    // if (getIfSelected(tikrinamasMygtukas.id == true)) {
+    //   winningArray.push('X');
+    // }
   }
 }
 
@@ -84,7 +88,10 @@ function getIfSelected(idNr) {
 
   stringToCheck = String(getSlctdFunBtn.classList);
 
-  if (stringToCheck.indexOf('selected') > -1) {
+  if (
+    stringToCheck.indexOf('selectedX') > -1 ||
+    stringToCheck.indexOf('selected0') > -1
+  ) {
     // console.log('turi selected', idNr);
     return (getSelected = true);
   } else {
@@ -98,11 +105,11 @@ function addX(btndID) {
   setTimeout(() => {
     console.log('xSvg' + btndID);
     let selBtn = document.getElementById('xSvg' + btndID);
-    selBtn.classList.add('selected'); //add class to selected svg
+    selBtn.classList.add('selectedX'); //add class to selected svg
     selBtn.style.display = 'block';
     //add class selected to a button
     selBtn = document.getElementById('mygtukas' + btndID);
-    selBtn.classList.add('selected');
+    selBtn.classList.add('selectedX');
   }, 1000);
 }
 
