@@ -69,9 +69,26 @@ function getUnselectedBtn() {
     //need to add different classes to O and X so we can make an
     //array of game grid and check if the condition is winning
 
-    getIfSelected(tikrinamasMygtukas.id) == true
-      ? console.log('getifslctd = True')
-      : console.log('getifslctd = false');
+    if (getIfSelected(tikrinamasMygtukas.id) == true) {
+      let checkingString = String(tikrinamasMygtukas.classList);
+
+      if (checkingString.indexOf('selectedX') > -1) {
+        winningArray.push('x');
+      }
+
+      if (checkingString.indexOf('selected0') > -1) {
+        winningArray.push('0');
+      }
+    }
+
+    console.log('array');
+
+    for (let a = 0; a <= winningArray.length; a++) {
+      console.log(winningArray[a]);
+    }
+    //getIfSelected(tikrinamasMygtukas.id) == true
+    //? console.log('getifslctd = True')
+    //: console.log('getifslctd = false');
 
     // if (getIfSelected(tikrinamasMygtukas.id == true)) {
     //   winningArray.push('X');
