@@ -9,8 +9,8 @@ function addCriss(btnId) {
   let idNr = btnId.charAt(btnId.length - 1);
   console.log('idNr-', idNr);
 
-  let svgMygtukas = document.getElementById('xSvg' + idNr);
-  svgMygtukas.classList.add('selected0');
+  // let svgMygtukas = document.getElementById('xSvg' + idNr);
+  // svgMygtukas.classList.add('selected0');
 
   getUnselectedBtn();
 }
@@ -38,7 +38,6 @@ function getUnselectedBtn() {
       gaunamasMygtukas = document.getElementById(rndBtnId);
       stringToCheck = String(gaunamasMygtukas.classList);
 
-      console.log('stringToCheck', stringToCheck);
       if (
         stringToCheck.indexOf('selectedX') > -1 ||
         stringToCheck.indexOf('selected0') > -1
@@ -66,9 +65,6 @@ function getUnselectedBtn() {
   for (let i = 0; i < mygtukai.length; i++) {
     tikrinamasMygtukas = mygtukai[i];
 
-    //need to add different classes to O and X so we can make an
-    //array of game grid and check if the condition is winning
-
     if (getIfSelected(tikrinamasMygtukas.id) == true) {
       let checkingString = String(tikrinamasMygtukas.classList);
 
@@ -80,20 +76,9 @@ function getUnselectedBtn() {
         winningArray.push('0');
       }
     }
-
-    console.log('array');
-
-    for (let a = 0; a <= winningArray.length; a++) {
-      console.log(winningArray[a]);
-    }
-    //getIfSelected(tikrinamasMygtukas.id) == true
-    //? console.log('getifslctd = True')
-    //: console.log('getifslctd = false');
-
-    // if (getIfSelected(tikrinamasMygtukas.id == true)) {
-    //   winningArray.push('X');
-    // }
   }
+  console.log('winningArray', winningArray);
+  winningTheGame(winningArray);
 }
 
 function getIfSelected(idNr) {
@@ -120,13 +105,10 @@ function getIfSelected(idNr) {
 //function adds X to random selected spot
 function addX(btndID) {
   setTimeout(() => {
-    console.log('xSvg' + btndID);
-    let selBtn = document.getElementById('xSvg' + btndID);
+    console.log('mygtukas' + btndID);
+    let selBtn = document.getElementById('mygtukas' + btndID);
     selBtn.classList.add('selectedX'); //add class to selected svg
-    selBtn.style.display = 'block';
-    //add class selected to a button
-    selBtn = document.getElementById('mygtukas' + btndID);
-    selBtn.classList.add('selectedX');
+    selBtn.style.border = '10px solid black';
   }, 1000);
 }
 
@@ -138,12 +120,17 @@ function getRandomInt(min, max) {
 }
 
 //function for winning conditions
-function winningTheGame() {
-  //maybe insert arrays with winning conditions?
-  //make array with selected0 class as a picture
-  //compare that array
+function winningTheGame(winningArray) {
+  //switch wont work, too many cases to check
+  switch (winningArray) {
+    case ('0', '0', '0'):
+      console.log('case 000');
+      break;
+  }
+  //write something to check if there are 3 items in line?
 }
 
 //TO DO LIST
 //need to fix svg, now it just floats randomly
 //winning conditions need to be added
+//chane x to rectangle so it wouldnt need new item and just manipulate the border
